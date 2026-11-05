@@ -1,0 +1,23 @@
+{
+  "name": "Rushwanth Varma Indukuri — Portfolio",
+  "short_name": "RV Portfolio",
+  "description": "Student developer portfolio: projects, skills, learning journey, and open-source preparation.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#04060e",
+  "theme_color": "#04060e",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

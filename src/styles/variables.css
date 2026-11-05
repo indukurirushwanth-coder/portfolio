@@ -1,0 +1,72 @@
+/* ---------------------------------------------------------------------------
+   DESIGN TOKENS
+   Change colors, spacing, and type here rather than hunting through files.
+--------------------------------------------------------------------------- */
+:root {
+  color-scheme: dark;
+
+  --font-display: 'Space Grotesk Variable', 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'Inter Variable', 'Inter', 'Segoe UI', sans-serif;
+  --font-mono: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+
+  --bg: #04060e;
+  --bg-elevated: #070a16;
+  --surface: rgba(12, 17, 33, 0.66);
+  --surface-hover: rgba(17, 23, 44, 0.8);
+  --surface-strong: rgba(10, 14, 28, 0.92);
+  --surface-solid: #0a0e1c;
+
+  --border: rgba(157, 177, 255, 0.12);
+  --border-strong: rgba(157, 177, 255, 0.24);
+  --border-accent: rgba(110, 168, 255, 0.4);
+
+  --text: #f4f6ff;
+  --text-soft: #ccd4e8;
+  --muted: #a3adc7;
+  --faint: #8490ad;
+
+  --blue: #6ea8ff;
+  --blue-bright: #9cccff;
+  --blue-deep: #2563eb;
+  --violet: #b9a2ff;
+  --violet-deep: #6d28d9;
+  --cyan: #67e8f9;
+  --green: #6ee7a8;
+  --amber: #f8d477;
+  --danger: #ffb3c0;
+
+  --gradient-accent: linear-gradient(
+    112deg,
+    #b8e0ff 0%,
+    #7fb9ff 32%,
+    #b9a2ff 68%,
+    #e3cdff 100%
+  );
+  --gradient-button: linear-gradient(135deg, #2563eb 0%, #6d28d9 100%);
+  --gradient-card: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.055) 0%,
+    rgba(255, 255, 255, 0.012) 60%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 24px 60px -28px rgba(0, 0, 0, 0.9);
+  --shadow-lg: 0 45px 100px -40px rgba(0, 0, 0, 0.95);
+  --glow-blue: 0 0 70px -18px rgba(59, 130, 246, 0.55);
+  --glow-violet: 0 0 80px -24px rgba(139, 92, 246, 0.5);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
+  --radius-full: 999px;
+
+  --container: 1160px;
+  --header-height: 74px;
+  --section-space: clamp(5rem, 9vw, 8rem);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --speed: 220ms;
+}

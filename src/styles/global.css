@@ -1,0 +1,349 @@
+/* ---------------------------------------------------------------------------
+   GLOBAL BASE — reset, typography, page background, accessibility helpers
+--------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 24px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: clip;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+code {
+  padding: 0.14em 0.4em;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--blue-bright);
+  font-family: var(--font-mono);
+  font-size: 0.84em;
+  overflow-wrap: anywhere;
+}
+
+::selection {
+  background: rgba(110, 168, 255, 0.32);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue-bright);
+  outline-offset: 3px;
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--header-height) + 18px);
+}
+
+.container {
+  width: min(var(--container), calc(100% - clamp(2rem, 6vw, 5rem)));
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-space);
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1000;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--blue-bright);
+  color: #050812;
+  font-weight: 700;
+  transform: translateY(-150%);
+  transition: transform var(--speed) var(--ease-out);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.gradient-text {
+  background: var(--gradient-accent);
+  background-size: 180% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-drift 9s ease-in-out infinite alternate;
+}
+
+.is-placeholder {
+  color: var(--muted);
+  text-decoration: underline dotted rgba(185, 162, 255, 0.6);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+/* ---------------------------------------------------------------------------
+   PAGE BACKDROP — fixed grid, soft aurora colour, restrained star field
+--------------------------------------------------------------------------- */
+.site-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 800px 520px at 12% -4%,
+      rgba(37, 99, 235, 0.2),
+      transparent 64%
+    ),
+    radial-gradient(
+      ellipse 680px 480px at 92% 4%,
+      rgba(109, 40, 217, 0.17),
+      transparent 66%
+    ),
+    radial-gradient(
+      ellipse 900px 600px at 60% 105%,
+      rgba(37, 99, 235, 0.1),
+      transparent 68%
+    ),
+    var(--bg);
+}
+
+.site-backdrop__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(148, 163, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 255, 0.055) 1px, transparent 1px);
+  background-size: 72px 72px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 78% 58% at 50% 8%,
+    #000 0%,
+    transparent 78%
+  );
+  mask-image: radial-gradient(
+    ellipse 78% 58% at 50% 8%,
+    #000 0%,
+    transparent 78%
+  );
+}
+
+.site-backdrop__stars {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(205, 222, 255, 0.65) 0 0.8px,
+    transparent 1.2px
+  );
+  background-size: 147px 147px;
+  background-position: 24px 36px;
+  opacity: 0.14;
+  -webkit-mask-image: radial-gradient(
+    ellipse 85% 65% at 50% 0%,
+    #000,
+    transparent 80%
+  );
+  mask-image: radial-gradient(
+    ellipse 85% 65% at 50% 0%,
+    #000,
+    transparent 80%
+  );
+}
+
+.site-backdrop__orb {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.42;
+  animation: orb-drift 22s ease-in-out infinite alternate;
+}
+
+.site-backdrop__orb--one {
+  top: 4%;
+  left: -10%;
+  width: 46rem;
+  height: 46rem;
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.32) 0%,
+    rgba(37, 99, 235, 0) 68%
+  );
+}
+
+.site-backdrop__orb--two {
+  top: 18%;
+  right: -14%;
+  width: 42rem;
+  height: 42rem;
+  background: radial-gradient(
+    circle,
+    rgba(124, 58, 237, 0.28) 0%,
+    rgba(124, 58, 237, 0) 70%
+  );
+  animation-delay: -8s;
+}
+
+#main-content:focus {
+  outline: none;
+}
+
+.site-backdrop__orb--three {
+  bottom: -22%;
+  left: 34%;
+  width: 40rem;
+  height: 40rem;
+  background: radial-gradient(
+    circle,
+    rgba(14, 165, 233, 0.14) 0%,
+    rgba(14, 165, 233, 0) 70%
+  );
+  animation-delay: -14s;
+}
+
+/* ---------------------------------------------------------------------------
+   SCROLL REVEAL
+--------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.65s var(--ease-out),
+    transform 0.65s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes gradient-drift {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes orb-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(3%, 4%, 0) scale(1.06);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   REDUCED MOTION — removes decorative movement without hiding content
+--------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
